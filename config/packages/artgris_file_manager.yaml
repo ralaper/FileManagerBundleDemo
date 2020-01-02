@@ -5,10 +5,13 @@ artgris_file_manager:
             dir: "../public/uploads/"
             tree: true
             upload:
-                image_versions: {'test': {crop: true, max_width: 10, max_height: 10}}
+                image_versions: {'thumbnail': {crop: true, max_width: 10, max_height: 10}}
         private:
             dir: "../private"
             type: image
+            upload:
+                max_width: 10
+
         tiny:
             dir: "../private"
             type: image

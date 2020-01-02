@@ -1,0 +1,19 @@
+{% extends 'base_fake.html.twig' %}
+
+{% block body %}
+    <iframe width="100%" onLoad="updateRoute(this.contentWindow.location);" height="450"
+            src="{{ path('file_manager', {'conf': 'default' }) }}" frameborder="0"></iframe>
+{% endblock %}
+
+
+{% block javascripts %}
+
+    <script>
+        function updateRoute(route) {
+            $('#route').val(route);
+        }
+    </script>
+
+    {{ parent() }}
+
+{% endblock %}

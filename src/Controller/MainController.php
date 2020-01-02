@@ -10,6 +10,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
+
+    /**
+     * @Route("/screen", name="screen")
+     */
+    public function screen()
+    {
+        return $this->render('main/screen.html.twig');
+    }
     /**
      * @Route("/", name="main")
      */
