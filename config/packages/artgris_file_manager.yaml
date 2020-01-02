@@ -3,7 +3,9 @@ artgris_file_manager:
     conf:
         default:
             dir: "../public/uploads/"
-            type: image
+            tree: true
+            upload:
+                image_versions: {'test': {crop: true, max_width: 10, max_height: 10}}
         private:
             dir: "../private"
             type: image
