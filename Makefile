@@ -7,3 +7,6 @@ install_bundle:
 
 auto-load:
 	composer dump-autoload
+
+install-ckeditor:
+	php bin/console ckeditor:install public/bundles/fosckeditor/
