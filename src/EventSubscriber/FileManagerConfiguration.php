@@ -12,6 +12,12 @@ use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
+/**
+ * block and hide all files/folders with regex: "/privates|.privates/"
+ *
+ * Class FileManagerConfiguration
+ * @package App\EventSubscriber
+ */
 class FileManagerConfiguration implements EventSubscriberInterface
 {
 
