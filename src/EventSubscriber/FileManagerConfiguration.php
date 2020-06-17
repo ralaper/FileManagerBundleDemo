@@ -18,13 +18,17 @@ class FileManagerConfiguration implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            FileManagerEvents::POST_DIRECTORY_FILTER_CONFIGURATION => 'postConfiguration',
-            FileManagerEvents::POST_FILE_FILTER_CONFIGURATION => 'postConfiguration',
-            FileManagerEvents::POST_CHECK_SECURITY => 'postSecurity',
-            FileManagerEvents::FILE_ACCESS => 'postSecurity',
+            FileManagerEvents::POST_DIRECTORY_FILTER_CONFIGURATION => 'postConfiguration',   // Add Directory Filter
+            FileManagerEvents::POST_FILE_FILTER_CONFIGURATION => 'postConfiguration', // Add File Filter
+            FileManagerEvents::POST_CHECK_SECURITY => 'postSecurity', // add Directory access security
+            FileManagerEvents::FILE_ACCESS => 'postSecurity', // add File access security
         ];
     }
 
+    /**
+     * Add Directory & File Filter
+     * @param GenericEvent $event
+     */
     public function postConfiguration(GenericEvent $event)
     {
         /** @var Finder $finder */
@@ -32,6 +36,10 @@ class FileManagerConfiguration implements EventSubscriberInterface
         $finder->notName($this->patterns());
     }
 
+    /**
+     * Add filemanager post security (directory access) & file access security
+     * @param GenericEvent $event
+     */
     public function postSecurity(GenericEvent $event)
     {
         $dir = $event->getArgument('path');
