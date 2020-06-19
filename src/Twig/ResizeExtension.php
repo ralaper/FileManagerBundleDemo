@@ -5,6 +5,7 @@ namespace App\Twig;
 
 
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Gregwar\Image\Image;
@@ -16,14 +17,19 @@ class ResizeExtension extends AbstractExtension
      * @var ParameterBagInterface
      */
     private $parameterBag;
+    /**
+     * @var RequestStack
+     */
+    private $requestStack;
 
 
     /**
      * ResizeExtension constructor.
      */
-    public function __construct(ParameterBagInterface $parameterBag)
+    public function __construct(ParameterBagInterface $parameterBag, RequestStack $requestStack)
     {
         $this->parameterBag = $parameterBag;
+        $this->requestStack = $requestStack;
     }
 
     public function getFilters()
@@ -44,8 +50,10 @@ class ResizeExtension extends AbstractExtension
     {
         $publicDir = $this->parameterBag->get('kernel.project_dir') . '/' . $this->parameterBag->get('artgris_file_manager')['web_dir'];
 
+        $size = $this->requestStack->getMasterRequest()->get('view') === 'thumbnail' ? 100 : 22;
+
         return Image::open($publicDir . $image)
-            ->resize(22, 22)
+            ->resize($size, $size)
             ->useFallback(false);
     }
 

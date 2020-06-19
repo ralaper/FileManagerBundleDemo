@@ -4,7 +4,7 @@ artgris_file_manager:
         default:
             dir: "../public/uploads/"
             tree: true
-#            twig_extension: "resize($IMAGE$)"
+            twig_extension: "resize($IMAGE$)"
 #            twig_extension: "$IMAGE$|resize"
             upload:
                 image_versions: {'thumbnail': {crop: true, max_width: 10, max_height: 10}}
