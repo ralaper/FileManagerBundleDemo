@@ -11,7 +11,8 @@ class CustomService implements CustomConfServiceInterface
     public function getConf($extra = [])
     {
         return [
-            'dir' => '../public/uploads/'
+            'dir' => '../public/uploads/',
+            'cachebreaker' => false
         ];
 
     }

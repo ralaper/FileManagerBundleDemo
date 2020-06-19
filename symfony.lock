@@ -96,6 +96,12 @@
             "config/packages/fos_ckeditor.yaml"
         ]
     },
+    "gregwar/cache": {
+        "version": "v1.0.12"
+    },
+    "gregwar/image": {
+        "version": "v2.0.28"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },

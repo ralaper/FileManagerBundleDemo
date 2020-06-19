@@ -6,6 +6,7 @@ use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
@@ -14,7 +15,7 @@ class MainController extends AbstractController
     /**
      * @Route("/screen", name="screen")
      */
-    public function screen()
+    public function screen(Request $request)
     {
         return $this->render('main/screen.html.twig');
     }

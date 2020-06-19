@@ -57,6 +57,6 @@ class FileManagerConfiguration implements EventSubscriberInterface
 
     private function patterns(): string
     {
-        return "/privates|.privates/";
+        return "/privates|.private/";
     }
 }
